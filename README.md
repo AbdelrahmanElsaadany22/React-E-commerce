@@ -1,12 +1,44 @@
-# React + Vite
+# 🛍️ React E-commerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a full-featured **E-commerce web application** built using **React.js**, offering a smooth shopping experience including product browsing, cart management, authentication, checkout, and more.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 [Click here to view the live site](https://abdelrahmanelsaadany22.github.io/React-E-commerce/)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧰 Technologies & Tools Used
+
+### 🖥️ Frontend
+
+- **React.js** — main library for building UI components
+- **React Router** — for client-side routing
+- **React Context API** — for managing global cart and auth state
+- **React Query** — for data fetching and caching
+- **React Hot Toast** — for clean and simple user notifications
+- **Axios** — for handling HTTP requests
+- **Tailwind CSS / Custom CSS** — for styling and layout
+- **React Spinners** — for loading indicators
+
+### 🔐 Authentication
+
+- JWT-based token system for user login
+- Tokens stored in `localStorage`
+
+### 🛒 Features
+
+- Browse and view recent products
+- Add products to shopping cart
+- View and update cart
+- Remove items from cart
+- Checkout functionality
+- Login/Signup system
+- Responsive design for desktop and mobile
+
+---
+
+## 📁 Project Structure
+

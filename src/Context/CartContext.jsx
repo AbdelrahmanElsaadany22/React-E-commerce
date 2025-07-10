@@ -11,7 +11,9 @@ export default function CartContextProvider(props) {
     let [cart,setCart]=useState(null)
     function getLoggedUserCart() {
         return axios.get(`https://ecommerce.routemisr.com/api/v1/cart`, {
-            headers
+          headers: {
+        token: localStorage.getItem("userToken")
+      }
         })
         .then(res => res)
         .catch(error =>error);
@@ -20,7 +22,9 @@ export default function CartContextProvider(props) {
         return axios.post(`https://ecommerce.routemisr.com/api/v1/cart`,{
             productId:productId
         },{
-            headers
+           headers: {
+        token: localStorage.getItem("userToken")
+      }
         }) .then(res => res)
         .catch(error =>error);
     }
@@ -28,14 +32,18 @@ export default function CartContextProvider(props) {
         return axios.put(`https://ecommerce.routemisr.com/api/v1/cart/${productId}`,{
             count:count
         },{
-            headers
+           headers: {
+        token: localStorage.getItem("userToken")
+      }
         }) .then(res => res)
         .catch(error =>error);
     }
 
 function deleteProductItem(productId) {
     return axios.delete(`https://ecommerce.routemisr.com/api/v1/cart/${productId}`, {
-        headers: headers,
+        headers: {
+        token: localStorage.getItem("userToken")
+      },
         data: {
             productId: productId
         }
@@ -50,7 +58,9 @@ function checkOut(cartid,url,formValues) {
     return axios.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartid}?url=${url}`, {
         shippingAddress:formValues
     },{
-        headers: headers,
+        headers: {
+        token: localStorage.getItem("userToken")
+      },
     })
     .then(res => res)
     .catch(error => error);

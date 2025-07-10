@@ -7,7 +7,7 @@ export function UserContextProvider(props){
     if(localStorage.getItem('userToken')!==null){
         setUserLogin(localStorage.getItem('userToken'))
     }
-  })
+  },[])
     return <UserContext.Provider value={{userLogin,setUserLogin}}>
         {props.children}
     </UserContext.Provider>

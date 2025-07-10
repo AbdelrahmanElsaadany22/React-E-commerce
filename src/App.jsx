@@ -24,44 +24,49 @@ import BrandsContextProvider from "./Context/BrandsContext";
 import SpecificBrand from "./components/Brands/SpecificBrand";
 import SpecificCategory from "./components/Categories/specificCategory";
 
+let query = new QueryClient()
 
-let query=new QueryClient()
-
-
-let x=createBrowserRouter([{
-  path:'',element:<Layout/>,children:[
-    {index:true,element:<ProtectedRoute><Home/></ProtectedRoute>},
-    {path:'categories',element:<ProtectedRoute><Categories/></ProtectedRoute>},
-    {path:'category/:id',element:<ProtectedRoute><SpecificCategory/></ProtectedRoute>},
-    {path:'brands',element:<ProtectedRoute><Brands/></ProtectedRoute>},
-    {path:'brands/:id',element:<ProtectedRoute><SpecificBrand/></ProtectedRoute>},
-    {path:'cart',element:<ProtectedRoute><Cart/></ProtectedRoute>},
-    {path:'products',element:<ProtectedRoute><Products/></ProtectedRoute>},
-    {path:'productdetails/:id/:category',element:<ProtectedRoute><SpecificProduct/></ProtectedRoute>},
-    {path:'checkout',element:<ProtectedRoute><Checkout/></ProtectedRoute>},
-    {path:'allorders',element:<ProtectedRoute><Allorders/></ProtectedRoute>},
-    {path:'login',element:<Login/>},
-    {path:'register',element:<Register/>},
-    {path:'*',element:<Notfound/>},
-  ]
-}])
-
-
+let x = createBrowserRouter(
+  [
+    {
+      path: '',
+      element: <Layout />,
+      children: [
+        { index: true, element: <ProtectedRoute><Home /></ProtectedRoute> },
+        { path: 'categories', element: <ProtectedRoute><Categories /></ProtectedRoute> },
+        { path: 'category/:id', element: <ProtectedRoute><SpecificCategory /></ProtectedRoute> },
+        { path: 'brands', element: <ProtectedRoute><Brands /></ProtectedRoute> },
+        { path: 'brands/:id', element: <ProtectedRoute><SpecificBrand /></ProtectedRoute> },
+        { path: 'cart', element: <ProtectedRoute><Cart /></ProtectedRoute> },
+        { path: 'products', element: <ProtectedRoute><Products /></ProtectedRoute> },
+        { path: 'productdetails/:id/:category', element: <ProtectedRoute><SpecificProduct /></ProtectedRoute> },
+        { path: 'checkout', element: <ProtectedRoute><Checkout /></ProtectedRoute> },
+        { path: 'allorders', element: <ProtectedRoute><Allorders /></ProtectedRoute> },
+        { path: 'login', element: <Login /> },
+        { path: 'register', element: <Register /> },
+        { path: '*', element: <Notfound /> },
+      ]
+    }
+  ],
+  {
+    basename: '/React-E-commerce/' // ✅ أهم تعديل عشان GitHub Pages
+  }
+)
 
 function App() {
-
-return <QueryClientProvider client={query}>
-
-<UserContextProvider>
-  <CartContextProvider>
-  <BrandsContextProvider>
-  <RouterProvider router={x}></RouterProvider>
-  <ReactQueryDevtools></ReactQueryDevtools>
-  <Toaster></Toaster>
-  </BrandsContextProvider>
-</CartContextProvider>
-</UserContextProvider>
-</QueryClientProvider>
+  return (
+    <QueryClientProvider client={query}>
+      <UserContextProvider>
+        <CartContextProvider>
+          <BrandsContextProvider>
+            <RouterProvider router={x}></RouterProvider>
+            <ReactQueryDevtools />
+            <Toaster />
+          </BrandsContextProvider>
+        </CartContextProvider>
+      </UserContextProvider>
+    </QueryClientProvider>
+  )
 }
 
 export default App
